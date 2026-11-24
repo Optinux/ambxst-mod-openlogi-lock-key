@@ -1,0 +1,12 @@
+diff --git a/shell.qml b/shell.qml
+index 16826c1..fd49f00 100644
+--- a/shell.qml
++++ b/shell.qml
+@@ -296,6 +296,7 @@ ShellRoot {
+                 _ = AxctlBackend.applicationsReady;
+                 _ = AxctlSystemTray.items.length;
+                 _ = Notifications.initialized;
++                _ = OpenLogiLockKey.active; // community.openlogi-lock-key-notification
+                 // PresetsService.initialize() is normally triggered lazily
+                 // when the user opens the Presets tab; the CLI preset
+                 // command needs the list available at boot, so kick it off

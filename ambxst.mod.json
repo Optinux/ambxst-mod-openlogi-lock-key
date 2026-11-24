@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Axenide/Ambxst/main/docs/mods/manifest.schema.json",
+  "manifestVersion": 1,
+  "id": "community.openlogi-lock-key-notification",
+  "name": "OpenLogi lock key notifications",
+  "version": "1.0.1",
+  "description": "Replaces OpenLogi's tiled lock key window (Caps/Num/Scroll Lock) with a regular Ambxst notification.",
+  "license": "AGPL-3.0-only",
+  "author": "Optinux",
+  "authorUrl": "https://github.com/Optinux",
+  "homepage": "https://github.com/Optinux/ambxst-mod-openlogi-lock-key",
+  "changelog": "CHANGELOG.md",
+  "deprecated": false,
+  "localization": {
+    "mode": "single",
+    "defaultLanguage": "en"
+  },
+  "compatibility": {
+    "api": 1,
+    "ambxst": ">=1.4.0 <1.5.0",
+    "testedBaseCommits": [
+      "730f0f7bce1cc11740ac98ff3141f14bbc968fb2"
+    ]
+  },
+  "commands": [
+    "sh"
+  ],
+  "permissions": [
+    "Closes windows whose app id is openlogi-lock-key-osd",
+    "Reads keyboard lock LED state from /sys/class/leds",
+    "Posts notifications through Ambxst's notification service"
+  ],
+  "operations": [
+    {
+      "type": "overlay",
+      "source": "payload/OpenLogiLockKey.qml",
+      "target": "modules/services/OpenLogiLockKey.qml"
+    },
+    {
+      "type": "patch",
+      "source": "patches/shell-init.patch"
+    }
+  ]
+}
